@@ -1,0 +1,258 @@
+@font-face {
+	font-family: MicrosoftYaHei;
+	src: url('font/MicrosoftYaHei.ttf').format('opentype');
+}
+
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* screen >1200 px */
+@media screen and (min-width: 850px) {
+.w {
+    width: 80%;
+    margin: auto;
+}
+
+body {
+	margin: 0;
+    padding: 0;
+	border: 0;
+	font-size: 20px;
+	font-family: MicrosoftYaHei;
+	background-color: #2F2F2F;
+}
+
+hr {
+    display: block;
+    width: 80%;
+    margin: auto;
+    border-style: inset;
+    border-width: 1px;
+}
+
+/* 这里是上方导航栏的代码。*/
+.header {
+    position: fixed;
+	background-color: #1F1F1F;
+	padding: 0 10%;
+	height: 70px;
+}
+
+.header ul.r-nav {
+    float: right;
+}
+
+.header ul.r-nav li {
+    float: right;
+}
+
+.header ul.l-nav {
+    float: left;
+}
+
+.header ul.l-nav li {
+    float: left;
+}
+
+.header ul.l-nav a {
+    float: left;
+	color: white;
+	font-weight: bold;
+	text-align: center;
+	padding: 20px 20px 20px 0px;
+}
+
+.header ul.r-nav a {
+    float: right;
+    color: white;
+	font-weight: bold;
+	text-align: center;
+	padding: 20px 0px 20px 20px;
+}
+
+div.header a.home {
+    color: rgb(161, 229, 182);
+}
+
+.header a.tutorial:hover {
+	color: rgb(123, 232, 211);
+}
+
+.header a.masterpiece:hover {
+    color: rgb(63, 157, 224);
+}
+
+.header a.member:hover {
+	color: rgb(38, 131, 227);
+}
+
+.header a.bilibili:hover {
+	color: rgb(111, 76, 222);
+}
+
+.header a.register:hover {
+    color: #caed52;
+}
+
+.header a.login:hover {
+    color: #caed52;
+}
+/* 上方导航栏的代码到此结束。*/
+
+.empty {
+    height: 100px;
+}
+
+/* 介绍部分的代码 */
+.overview {
+    border-radius: 30px;
+    margin-bottom: 30px;
+    color:#F0F2F5;
+    font-weight: bold;
+    background-image: url(../img/intro.jpeg);
+}
+
+.overview p {
+    padding: 30px;
+}
+
+.part {
+    margin-bottom: 30px;
+    color:#F0F2F5;
+    font-weight: bold;
+}
+
+.part ul {
+    float: left;
+    width: 105%;
+}
+
+.part ul li {
+    float: left;
+    width: 28.57%;
+    margin-right: 4.76%;
+    margin-bottom: 50px;
+    border-radius: 30px;
+}
+
+.part ul li p {
+    padding: 20px;
+}
+
+.part ul li#xueshu {
+    background-image: url(../img/xueshu.jpeg);
+}
+
+.part ul li#gongguan {
+    background-image: url(../img/gongguan.jpeg);
+}
+
+.part ul li#xuanchuan {
+    background-image: url(../img/xuanchuan.jpeg);
+}
+
+/* 介绍部分的代码结束 */
+
+/* 联系方式 */
+.contact {
+    margin-top: 50px;
+    margin-bottom: 30px;
+    color:#F0F2F5;
+}
+
+.contact h3 {
+    margin-bottom: 10px;
+    font-weight: bold;
+    font-size: 30px;
+}
+
+
+/* 联系方式代码结束 */
+
+.bottom {
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.footer {
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin-top: 30pt;
+    clear: both;
+    color: #F0F2F5;
+    text-align: left;
+    height: 300pt;
+}
+
+.footer ul {
+    list-style:none;
+    margin: 0;
+    padding: 0;
+}
+.footer li {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 12pt;
+}
+.footer #tail-introduction {
+    float: left;
+    width: 25%;
+}
+.footer #tail-introduction p {
+    font-size: 10pt;
+}
+.footer #tail-introduction #contact-link img {
+    width: 20px;
+    height: 20px;
+	border-radius: 25%;
+	margin-left: 5px;
+	margin-right: 5px;
+	margin-top: 10px;
+}
+.footer h4 {
+    font-size: 14pt;
+}
+.footer #tail1 {
+    float: right;
+    margin-right: 5%;
+}
+.footer #tail2 {
+    float: right;
+    margin-right: 5%;
+}
+.footer #tail3 {
+    float: right;
+    margin-right: 5%;
+}
+.footer #tail4 {
+    float: right;
+    margin-right: 0;
+    margin-bottom: 150pt;
+}
+
+.footer hr {
+    display: block;
+    width: 100%;
+    margin: 0;
+    border-style: inset;
+    border-width: 1px;
+}
+
+.copyright {
+    text-align: center;
+    margin: 20px 20px;
+    bottom: 10px;
+}
+}
