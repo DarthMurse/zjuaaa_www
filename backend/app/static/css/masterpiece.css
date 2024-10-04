@@ -1,0 +1,87 @@
+/* screen >850 px */
+@media screen and (min-width: 850px) {
+/* 标题栏代码 */
+.slogan p {
+	background: linear-gradient(to right, rgb(134, 239, 172), rgb(59, 130, 246), rgb(147, 51, 234));
+	-webkit-background-clip: text;
+	color: transparent;
+	padding-top: 120px;
+	padding-bottom: 30px;
+	border: 0;
+	font-size: 64px;
+	font-weight: bold;
+	line-height: 80px;
+	width: 800px;
+}
+/* 标题栏代码结束 */
+
+/* 图片部分 */
+
+.picture ul {
+	float: left;
+	width: 30%;
+	margin-right: 5%;
+}
+
+.picture ul.last {
+	margin-right: 0;
+}
+
+.picture ul li {
+	float: top;
+	margin-bottom: 30px;
+}
+
+.picture ul li img {
+	width: 100%;
+}
+/* 图片部分结束 */
+
+/* 照片上传部分 */
+.upload {
+	color:#F0F2F5;
+}
+
+.upload form {
+	width: 60%;
+	height: 300px;
+	margin: auto;
+}
+
+.upload div {
+	padding: 10px;
+    text-align: right;
+}
+
+.upload input {
+    text-align: center;
+	width: 60%;
+	height: 25px;
+	border-radius: 4px;
+	border-color: black;
+	border: 1px;
+	color: #888;
+	font-size: 20px;
+}
+
+.upload h3 {
+	padding: 20px 0;
+	text-align: center;
+	font-size: 30px;
+	font-weight: bold;
+	color:#F0F2F5;
+}
+
+.upload textarea {
+	vertical-align: top;
+	width: 60%;
+	margin-left: 5px;
+	border-radius: 4px;
+	border-color: black;
+	border: 1px;
+	color: #888;
+	font-size: 16px;
+}
+
+/* 照片上传部分结束 */
+}

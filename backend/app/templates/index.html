@@ -1,0 +1,75 @@
+{% extends 'header-footer.html' %}
+{% load static %}
+
+{% block title_and_css %}
+<title>浙大天协</title>
+<link rel="stylesheet" href="{% static 'css/index.css' %}">
+{% endblock %}
+
+{% block middle %}
+<!-- slogan -->
+<div class="slogan w">
+    <p>你好，我们是</p>
+    <p>浙江大学</p>
+    <p>学生天文爱好者协会</p>
+    <p id="white">由此，上达群星</p>
+    <p id="small">追逐星辰的浙大人</p>
+    <a href="about.html" id="button2"> 社团概览</a>
+</div>
+<!-- slogan end -->
+
+<hr>
+
+<!-- articles -->
+<div class="article w">
+    <div class="box-head">
+        <h3>知识手册</h3>
+        <a href="tutorial.html">查看全部</a>
+    </div>
+    <div class="box-body">
+        <ul>
+            <li>
+                <img src="{% static 'img/m33.jpeg' %}" alt="M33">
+                <span class="description">这是一个天文知识手册。</span>
+            </li>
+            <li>
+                <img src="{% static 'img/m33.jpeg' %}" alt="M33">
+                <span class="description">这是一个天文知识手册。</span>
+            </li>
+            <li>
+                <img src="{% static 'img/m33.jpeg' %}" alt="M33">
+                <span class="description">这是一个天文知识手册。</span>
+            </li>
+        </ul>
+    </div>
+</div>
+<!-- articles end -->
+
+<hr>
+<!-- masterpiece -->
+<div class="picture w">
+    <div class="box-head">
+        <h3>天文摄影画廊</h3>
+        <a href="masterpiece.html">查看全部</a>
+    </div>
+    <div class="box-body">
+        <ul>
+            <li>
+                <img src="{% static 'img/m33.jpeg' %}" alt="M33">
+                <span class="description">作者：XXX</span>
+            </li>
+            <li>
+                <img src="{% static 'img/m33.jpeg' %}" alt="M33">
+                <span class="description">作者：XXX</span>
+            </li>
+            <li>
+                <img src="{% static 'img/m33.jpeg' %}" alt="M33">
+                <span class="description">作者：XXX</span>
+            </li>
+        </ul>
+    </div>
+</div>
+<!-- masterpiece end -->
+
+<hr>
+{% endblock %}

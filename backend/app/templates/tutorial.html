@@ -1,0 +1,64 @@
+{% extends 'header-footer.html' %}
+{% load static %}
+
+{% block title_and_css %}
+<title>浙大天协教程</title>
+<link rel="stylesheet" href="{% static 'css/tutorial.css' %}"> 
+{% endblock %}
+
+{% block middle %}
+<div class="slogan w">
+    <p>天文知识手册</p>
+</div>
+
+<!-- articles -->
+<div class="article w">
+    <div class="box-body">
+        <ul>
+            {% for item in md_info %}
+            <li>
+                <a href="tutorial-detail.html"><img src="{% static 'img/'|add:item.img_url %}"></a>
+                <a href="tutorial-detail.html"><span class="description">{{item.title}}</span></a>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+<!-- articles end -->
+
+{% if show %}
+<hr>
+<!-- tutorial upload -->
+<div class="upload w">
+    <h3>教程上传</h3>
+    <p>
+        请按照下面的格式上传文件夹：文件夹名称为教程的名称，其中装有各个章节的子文件夹，名称为各个
+        章节的编号及名称。markdown文件和其中饮用的图片放在各个章节子文件夹下，以其子章节的名称命名。
+        最后上传该文件夹的压缩包（tar.gz）。具体例子如下图所示：
+    </p>
+    <div class="img">
+        <img src="{% static 'img/md_example.png' %}" alt="">
+    </div>
+    <form action="#" method="post" name="masterpiece-upload" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div>
+            <label for="masterpiece-file">上传教程：</label><input type="file" name="tutorial-md">
+        </div>
+        <div>
+            <label for="author">上传封面图片：</label> <input type="file" name="tutorial-img">
+        </div>
+        <div>
+            <label for="author">作者名称：</label><input type="text" name="author">
+        </div>
+        <div>
+            <label for="description">教程标题：</label><input type="text" name="title" id="">
+        </div>
+        <div>
+            <input type="submit" id="submit" value="提交"></span>
+        </div>
+    </form>
+</div>
+<!-- tutorial upload end -->
+{% endif %}
+<hr>
+{% endblock %}

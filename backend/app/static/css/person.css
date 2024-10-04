@@ -1,0 +1,84 @@
+@media screen and (min-width: 850px) {
+/* 知识手册代码开始 */
+.article {
+    height: 350px;
+    padding-top: 70px;
+}
+.article .box-head h3 {
+    float: left;
+    padding: 20px 0;
+    font-size: 30px;
+    font-weight: bold;
+    color: #F0F2F5;
+}
+
+.article .box-head a {
+    float: right;
+    padding: 25px 0;
+    color: gray;
+}
+
+.article .box-body ul {
+    float: left;
+    width: 105%;
+}
+
+.article .box-body ul li {
+    float: left;
+    width: 28.57%;
+    margin-right: 4.76%;
+    padding-bottom: 10px;
+    background-color: #F0F2F5;
+}
+
+.article .box-body ul li img {
+    width: 100%;
+}
+
+.article .box-body ul li span {
+    font-size: 16px;
+    padding: 10px 5% 10px 5%;    
+}
+/* 知识手册代码结束 */
+
+/* 天文摄影代码开始 */
+.picture {
+    height: 350px;
+}
+.picture .box-head h3 {
+    float: left;
+    padding: 20px 0;
+    font-size: 30px;
+    font-weight: bold;
+    color: #F0F2F5;
+}
+
+.picture .box-head a {
+    float: right;
+    padding: 25px 0;
+    color: gray;
+}
+
+.picture .box-body ul {
+    float: left;
+    width: 105%;
+}
+
+.picture .box-body ul li {
+    float: left;
+    width: 28.57%;
+    margin-right: 4.76%;
+    padding-bottom: 10px;
+    background-color: #F0F2F5;
+}
+
+.picture .box-body ul li img {
+    width: 100%;
+}
+
+.picture .box-body ul li span {
+    font-size: 16px;
+    padding: 10px 5% 10px 5%;
+}
+/* 天文摄影代码结束 */
+}

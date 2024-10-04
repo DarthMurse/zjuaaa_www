@@ -1,0 +1,28 @@
+{% extends 'header.html' %}
+{% load static %}
+{% block title_css %}
+<title>浙大天协登陆</title>
+<link rel="stylesheet" href="{% static 'css/login.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="login-here">
+    <form method="post">
+        {% csrf_token %}
+        <div>
+            <label for="user">用户名：</label>
+            <input type="text" name="user">
+        </div>
+        <div>
+            <label for="password">密码：</label>
+            <input type="password" name="password">
+        </div>
+        <div>
+            <input type="submit" value="登陆">
+        </div>
+    </form>
+    <div class="notice">
+        {{notice}}
+    </div>
+</div>
+{% endblock %}

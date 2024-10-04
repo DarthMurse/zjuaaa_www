@@ -1,0 +1,73 @@
+/* screen >850 px */
+@media screen and (min-width: 850px) {
+/* 图片部分 */
+.picture {
+    padding-top: 100px;
+    padding-bottom: 50px;
+}
+
+.picture img {
+    width: 100%;
+}
+
+.picture .author {
+    text-align: center;
+    font-size: 16px;
+    color: #888;
+}
+
+.picture .description {
+    padding-left: 15%;
+    margin-top: 20px;
+    color: #F0F2F5;
+}
+/* 图片部分结束 */
+
+/* 照片上传部分 */
+.upload {
+	color:#F0F2F5;
+}
+
+.upload form {
+	width: 60%;
+	height: 300px;
+	margin: auto;
+}
+
+.upload div {
+	padding: 10px;
+    text-align: right;
+}
+
+.upload input {
+    text-align: center;
+	width: 60%;
+	height: 25px;
+	border-radius: 4px;
+	border-color: black;
+	border: 1px;
+	color: #888;
+	font-size: 20px;
+}
+
+.upload h3 {
+	padding: 20px 0;
+	text-align: center;
+	font-size: 30px;
+	font-weight: bold;
+	color:#F0F2F5;
+}
+
+.upload textarea {
+	vertical-align: top;
+	width: 60%;
+	margin-left: 5px;
+	border-radius: 4px;
+	border-color: black;
+	border: 1px;
+	color: #888;
+	font-size: 16px;
+}
+
+/* 照片上传部分结束 */
+}

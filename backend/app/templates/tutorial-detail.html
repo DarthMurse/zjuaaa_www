@@ -1,0 +1,42 @@
+{% extends 'header.html' %}
+{% load static %}
+
+{% block title_css %}
+<title>浙大天协教程</title>
+<link rel="stylesheet" href="{% static 'css/tutorial-detail.css' %}"> 
+<script type="module" src="https://cdn.jsdelivr.net/gh/zerodevx/zero-md@2/dist/zero-md.min.js"></script>
+<script src="{% static 'js/tutorial.js' %}"></script>
+{% endblock %}
+
+{% block content %}
+<!-- tutorial -->
+<div class="container">
+    <div class="sidebar">
+        <h4>markdown教程</h4>
+        <ul>
+            <li>
+                <p>1.markdown语法</p>
+            </li>
+            <li>
+                <p>2.markdown标题</p>
+            </li>
+            <li>
+                <p>3.markdown段落格式</p>
+            </li>
+        </ul>
+    </div>
+    <div class="content">
+        <div class="head-img">
+            <img src="{% static 'img/tutorial_logo.png' %}" alt="">
+            <h3>markdown简介</h3>
+        </div>
+        <zero-md src="{% static 'md/1.markdown简介.md' %}" class="md">
+            <template>
+                <link rel="stylesheet" href="{% static 'css/tutorial-detail.css' %}">
+            </template>
+        </zero-md>
+    </div>
+ </div>
+<!-- tutorial ends -->
+<hr>
+{% endblock %}

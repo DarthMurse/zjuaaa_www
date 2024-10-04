@@ -1,0 +1,74 @@
+
+/* screen >1200 px */
+@media screen and (min-width: 850px) {
+
+.empty {
+    height: 100px;
+}
+
+/* 介绍部分的代码 */
+.overview {
+    border-radius: 30px;
+    margin-bottom: 30px;
+    color:#F0F2F5;
+    font-weight: bold;
+    background-image: url(../img/intro.jpeg);
+}
+
+.overview p {
+    padding: 30px;
+}
+
+.part {
+    margin-bottom: 30px;
+    color:#F0F2F5;
+    font-weight: bold;
+}
+
+.part ul {
+    float: left;
+    width: 105%;
+}
+
+.part ul li {
+    float: left;
+    width: 28.57%;
+    margin-right: 4.76%;
+    margin-bottom: 50px;
+    border-radius: 30px;
+}
+
+.part ul li p {
+    padding: 20px;
+}
+
+.part ul li#xueshu {
+    background-image: url(../img/xueshu.jpeg);
+}
+
+.part ul li#gongguan {
+    background-image: url(../img/gongguan.jpeg);
+}
+
+.part ul li#xuanchuan {
+    background-image: url(../img/xuanchuan.jpeg);
+}
+
+/* 介绍部分的代码结束 */
+
+/* 联系方式 */
+.contact {
+    margin-top: 50px;
+    margin-bottom: 30px;
+    color:#F0F2F5;
+}
+
+.contact h3 {
+    margin-bottom: 10px;
+    font-weight: bold;
+    font-size: 30px;
+}
+
+
+/* 联系方式代码结束 */
+}

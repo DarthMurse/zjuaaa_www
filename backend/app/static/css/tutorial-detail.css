@@ -1,0 +1,65 @@
+/* screen >1200 px */
+@media screen and (min-width: 850px) {
+
+/* 主体部分 */
+.container {
+    display: flex;
+    padding-top: 70px;
+    width: 100%;
+    margin: 0;
+    border: 0;
+}
+
+.sidebar {
+    overflow: scroll;
+    width: 23%;
+    height: 100vh;
+    border-right: 1px solid white;
+    border-top: 1px solid white;
+    color:blueviolet;
+}
+
+.sidebar h4 {
+    color: white;
+    font-size: 25px;
+    font-weight: bold;
+    padding:10px 5px 15px 15px;
+}
+
+.sidebar ul li {
+    padding-left: 15px;
+    padding-bottom: 5px;
+}
+
+.content {
+    overflow: scroll;
+    width: 77%;
+    height: 100vh;
+    padding: 15px;
+    border-top: 1px solid white;
+    color:bisque;
+    z-index: 1;
+}
+
+.content .head-img {
+    width: 100%;
+}
+
+.content .head-img h3 {
+    float: left;
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.content .head-img img {
+    float: left;
+    width: 50px;
+    height: 50px;
+}
+
+.content .md {
+    clear: both;
+}
+
+/* 主体部分结束 */
+}

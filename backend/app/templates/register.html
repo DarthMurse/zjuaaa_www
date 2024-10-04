@@ -1,0 +1,33 @@
+{% extends 'header.html' %}
+{% load static %}
+
+{% block title_css %}
+<title>浙大天协注册</title>
+<link rel="stylesheet" href="{% static 'css/register.css' %}"> 
+{% endblock %}
+
+{% block content %}
+<div class="register-here">
+    <form method="post">
+        {% csrf_token %}
+        <div>
+            <label for="user">用户名：</label>
+            <input type="text" name="user">
+        </div>
+        <div>
+            <label for="passwrod">密码：</label>
+            <input type="password" name="password">
+        </div>
+        <div>
+            <label for="passwrod-again">重复密码：</label>
+            <input type="password" name="re-password">
+        </div>
+        <div>
+            <input type="submit" value="登陆">
+        </div>
+    </form>
+    <div class="notice">
+        {{notice}}
+    </div>
+</div>
+{% endblock %}

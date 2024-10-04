@@ -1,0 +1,67 @@
+{% extends 'header-footer.html' %}
+{% load static %}
+
+{% block title_and_css %}
+<title>浙大天协画廊</title>
+<link rel="stylesheet" href="{% static 'css/masterpiece.css' %}"> 
+{% endblock %}
+
+{% block middle %}
+<!-- slogan -->
+<div class="slogan w">
+    <p>天文摄影画廊</p>
+</div>
+
+<!-- masterpiece -->
+<div class="picture w">
+    <ul>
+        {% for item in info_1 %}
+        <li>
+            <a href="masterpiece-detail.html?id={{item.id}}"><img src="{% static 'img/small_'|add:item.url %}"></a>
+        </li>
+        {% endfor %}
+    </ul>
+    <ul>
+        {% for item in info_2 %}
+        <li>
+            <a href="masterpiece-detail.html?id={{item.id}}"><img src="{% static 'img/small_'|add:item.url %}"></a>
+        </li>
+        {% endfor %}
+    </ul>
+    <ul class="last">
+        {% for item in info_3 %}
+        <li>
+            <a href="masterpiece-detail.html?id={{item.id}}"><img src="{% static 'img/small_'|add:item.url %}"></a>
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+<!-- masterpiece end -->
+
+
+<!-- picture upload -->
+ {% if show %}
+ <hr>
+<div class="upload w">
+    <h3>作品上传</h3>
+    <form action="#" method="post" name="masterpiece-upload", enctype="multipart/form-data">
+        {% csrf_token %}
+        <div>
+            <label for="masterpiece-file">上传图片：</label><input type="file" name="masterpiece-file">
+        </div>
+        <div>
+            <label for="author">作者名称：</label> <input type="text" name="author">
+        </div>
+        <div>
+            <label for="description">作品描述：</label><textarea rows="4" name="description"></textarea>
+        </div>
+        <div>
+            <input type="submit" name="go" value="提交">
+        </div>
+    </form>
+</div>
+{% endif %}
+<!-- picture upload end -->
+
+<hr>
+{% endblock %}

@@ -1,0 +1,141 @@
+@media screen and (min-width: 850px) {
+/* 标语代码开始 */
+div.slogan {
+	background-color: #2F2F2F;
+	padding: 160px 0px 160px 10%;
+}
+
+div.slogan p {
+	background: linear-gradient(to right, rgb(134, 239, 172), rgb(59, 130, 246), rgb(147, 51, 234));
+	-webkit-background-clip: text;
+	color: transparent;
+	padding: 0;
+	border: 0;
+	margin: 0;
+	font-size: 64px;
+	font-weight: bold;
+	line-height: 80px;
+	width: 800px;
+}
+
+div.slogan p#white {
+	color: white;
+}
+
+div.slogan p#small {
+	font-size: 24px;
+	font-weight: normal;
+	color: #F0F2F5;
+	letter-spacing: 36px;
+}
+
+div.slogan a#button2 {
+	margin-top: 10px;
+	font-size: 18px;
+	background-image: linear-gradient(to right, rgb(134, 239, 172), rgb(59, 130, 246), rgb(147, 51, 234));
+	color: #F0F2F5;
+	display: inline block;
+	padding: 20px 30px 20px 40px;
+	border-radius: 40px;
+	float: left;
+	letter-spacing: 12px;
+	text-decoration: none;
+}
+
+div.slogan a#button3 {
+	margin-left: 50px;
+	margin-top: 10px;
+	font-size: 18px;
+	color: #F0F2F5;
+	background-color: transparent;
+	border: 2px solid #F0F2F5;
+	padding: 20px 20px 20px 30px;
+	border-radius: 40px;
+	float: left;
+	letter-spacing: 12px;
+	text-decoration: none;
+}
+/* 标语代码结束 */
+
+/* 知识手册代码开始 */
+.article {
+    height: 350px;
+}
+.article .box-head h3 {
+    float: left;
+    padding: 20px 0;
+    font-size: 30px;
+    font-weight: bold;
+    color: #F0F2F5;
+}
+
+.article .box-head a {
+    float: right;
+    padding: 25px 0;
+    color: gray;
+}
+
+.article .box-body ul {
+    float: left;
+    width: 105%;
+}
+
+.article .box-body ul li {
+    float: left;
+    width: 28.57%;
+    margin-right: 4.76%;
+    padding-bottom: 10px;
+    background-color: #F0F2F5;
+}
+
+.article .box-body ul li img {
+    width: 100%;
+}
+
+.article .box-body ul li span {
+    font-size: 16px;
+    padding: 10px 5% 10px 5%;    
+}
+/* 知识手册代码结束 */
+
+/* 天文摄影代码开始 */
+.picture {
+    height: 350px;
+}
+.picture .box-head h3 {
+    float: left;
+    padding: 20px 0;
+    font-size: 30px;
+    font-weight: bold;
+    color: #F0F2F5;
+}
+
+.picture .box-head a {
+    float: right;
+    padding: 25px 0;
+    color: gray;
+}
+
+.picture .box-body ul {
+    float: left;
+    width: 105%;
+}
+
+.picture .box-body ul li {
+    float: left;
+    width: 28.57%;
+    margin-right: 4.76%;
+    padding-bottom: 10px;
+    background-color: #F0F2F5;
+}
+
+.picture .box-body ul li img {
+    width: 100%;
+}
+
+.picture .box-body ul li span {
+    font-size: 16px;
+    padding: 10px 5% 10px 5%;
+}
+/* 天文摄影代码结束 */
+}

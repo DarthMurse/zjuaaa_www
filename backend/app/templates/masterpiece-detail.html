@@ -1,0 +1,42 @@
+{% extends 'header-footer.html' %}
+{% load static %}
+
+{% block title_and_css %}
+<title>浙大天协画廊</title>
+<link rel="stylesheet" href="{% static 'css/masterpiece-detail.css' %}"> 
+{% endblock %}
+
+{% block middle %}
+<!-- masterpiece -->
+<div class="picture w">
+    <img src="{% static 'img/'|add:info.url %}">
+    <div class="author">作者：{{info.author}}</div>
+    <div class="description">{{info.description}}</div>
+</div>
+<!-- masterpiece end -->
+
+{% if show %}
+<!-- picture upload -->
+ <hr>
+<div class="upload w">
+    <h3>作品上传</h3>
+    <form action="#" method="post" name="masterpiece-upload", enctype="multipart/form-data">
+        {% csrf_token %}
+        <div>
+            <label for="masterpiece-file">上传图片：</label><input type="file" name="masterpiece-file">
+        </div>
+        <div>
+            <label for="author">作者名称：</label> <input type="text" name="author">
+        </div>
+        <div>
+            <label for="description">作品描述：</label><textarea rows="4" name="description"></textarea>
+        </div>
+        <div>
+            <input type="submit" name="go" value="提交">
+        </div>
+    </form>
+</div>
+<!-- picture upload end -->
+{% endif %}
+<hr>
+{% endblock %}

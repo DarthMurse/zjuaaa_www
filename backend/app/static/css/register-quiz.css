@@ -1,0 +1,25 @@
+
+/* screen >1200 px */
+@media screen and (min-width: 850px) {
+
+.quiz {
+    padding-top: 100px;
+    color: aqua;
+}
+
+.quiz ul {
+    margin-bottom: 20px;
+}
+
+.quiz input {
+    margin-right: 10px;
+}
+
+.quiz input[type="submit"] {
+    width: 20%;
+    height: 25px;
+    border: 1px;
+    border-radius: 4px;
+    color: #888;
+}
+}

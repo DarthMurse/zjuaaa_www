@@ -1,0 +1,61 @@
+{% extends 'header-footer.html' %}
+{% load static %}
+
+{% block title_and_css %}
+<link rel="stylesheet" href="{% static 'css/person.css' %}">
+<title>{{user_name}}的个人中心</title>
+{% endblock %}
+
+{% block middle %}
+<!-- articles -->
+<div class="article w">
+    <div class="box-head">
+        <h3>知识手册</h3>
+        <a href="tutorial.html">查看全部</a>
+    </div>
+    <div class="box-body">
+        <ul>
+            <li>
+                <img src="{% static 'img/m33.jpeg' %}" alt="M33">
+                <span class="description">这是一个天文知识手册。</span>
+            </li>
+            <li>
+                <img src="{% static 'img/m33.jpeg' %}" alt="M33">
+                <span class="description">这是一个天文知识手册。</span>
+            </li>
+            <li>
+                <img src="{% static 'img/m33.jpeg' %}" alt="M33">
+                <span class="description">这是一个天文知识手册。</span>
+            </li>
+        </ul>
+    </div>
+</div>
+<!-- articles end -->
+
+<hr>
+<!-- masterpiece -->
+<div class="picture w">
+    <div class="box-head">
+        <h3>天文摄影画廊</h3>
+        <a href="masterpiece.html">查看全部</a>
+    </div>
+    <div class="box-body">
+        <ul>
+            <li>
+                <img src="{% static 'img/m33.jpeg' %}" alt="M33">
+                <span class="description">作者：XXX</span>
+            </li>
+            <li>
+                <img src="{% static 'img/m33.jpeg' %}" alt="M33">
+                <span class="description">作者：XXX</span>
+            </li>
+            <li>
+                <img src="{% static 'img/m33.jpeg' %}" alt="M33">
+                <span class="description">作者：XXX</span>
+            </li>
+        </ul>
+    </div>
+</div>
+<!-- masterpiece end -->
+ <hr>
+{% endblock %}

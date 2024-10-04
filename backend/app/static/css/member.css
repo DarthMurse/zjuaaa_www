@@ -1,0 +1,54 @@
+
+/* screen >1200 px */
+@media screen and (min-width: 850px) {
+
+/* 搜索栏代码开始 */
+.search {
+    padding-top: 100px;
+}
+
+.search input {
+    float: left;
+    width: 80%;
+    height: 30px;
+    border: 2px solid;
+    border-color: #4ec2e1;
+    margin: 0 0 0 10%;
+    color: #888;
+    font-size: 20px;
+}
+
+.search button {
+    float: left;
+    margin: 0;
+    height: 34px;
+    width: 34px;
+    border: 0;
+    background-image: url(../img/search_small.png);
+}
+/* 搜索栏代码结束 */
+
+/* 表格代码开始 */
+.table {
+    color:#F0F2F5;
+    margin-top: 70px;
+    margin-bottom: 30px;
+}
+
+.table h3 {
+    font-size: 40px;
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+
+.table td{
+    border: 1px solid;
+    border-color:#F0F2F5;
+    padding: 5px;
+}
+.table table{
+    border-collapse: collapse;
+}
+/* 代码结束 */
+
+}

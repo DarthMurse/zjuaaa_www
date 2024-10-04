@@ -1,0 +1,52 @@
+{% extends 'header.html' %}
+{% load static %}
+
+{% block title_css %}
+<title>浙大天协注册</title>
+<link rel="stylesheet" href="{% static 'css/register-quiz.css' %}"> 
+{% endblock %}
+
+{% block content %}
+<div class="quiz w">
+    <form method="post">
+        {% csrf_token %}
+        <ul>
+            <li>
+                1.请问夜空中最亮的恒星是哪一颗？
+            </li>
+            <li>
+                <input type="radio" name="quiz_1" value="A">A.北极星
+            </li>
+            <li>
+                <input type="radio" name="quiz_1" value="B">B.天狼星
+            </li>
+            <li>
+                <input type="radio" name="quiz_1" value="C">C.老人星
+            </li>
+            <li>
+                <input type="radio" name="quiz_1" value="D">D.织女星
+            </li>
+        </ul>
+        <ul>
+            <li>
+                2.请问浙大天协没有以下哪个部门？
+            </li>
+            <li>
+                <input type="radio" name="quiz_2" value="A">A.宣传部
+            </li>
+            <li>
+                <input type="radio" name="quiz_2" value="B">B.学术部
+            </li>
+            <li>
+                <input type="radio" name="quiz_2" value="C">C.公关部
+            </li>
+            <li>
+                <input type="radio" name="quiz_2" value="D">D.实践部
+            </li>
+        </ul>
+        <div>
+            <input type="submit" name="" id="" value="提交">
+        </div>
+    </form>
+</div>
+{% endblock %}
