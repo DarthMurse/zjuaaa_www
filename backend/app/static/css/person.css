@@ -1,7 +1,6 @@
 @media screen and (min-width: 850px) {
 /* 知识手册代码开始 */
 .article {
-    height: 350px;
     padding-top: 70px;
 }
 .article .box-head h3 {
@@ -10,6 +9,15 @@
     font-size: 30px;
     font-weight: bold;
     color: #F0F2F5;
+}
+
+.article .box-head{
+    overflow: hidden;
+}
+
+.article .box-body {
+    overflow: hidden;
+    margin-bottom: 30px;
 }
 
 .article .box-head a {
@@ -27,24 +35,34 @@
     float: left;
     width: 28.57%;
     margin-right: 4.76%;
+    margin-bottom: 20px;
     padding-bottom: 10px;
     background-color: #F0F2F5;
 }
 
 .article .box-body ul li img {
+    margin: 0;
     width: 100%;
 }
 
 .article .box-body ul li span {
+    margin: 0;
     font-size: 16px;
     padding: 10px 5% 10px 5%;    
 }
 /* 知识手册代码结束 */
 
 /* 天文摄影代码开始 */
-.picture {
-    height: 350px;
+
+.picture .box-head {
+    overflow: hidden;
 }
+
+.picture .box-body {
+    overflow: hidden;
+    margin-bottom: 30px;
+}
+
 .picture .box-head h3 {
     float: left;
     padding: 20px 0;
@@ -68,15 +86,18 @@
     float: left;
     width: 28.57%;
     margin-right: 4.76%;
+    margin-bottom: 20px;
     padding-bottom: 10px;
     background-color: #F0F2F5;
 }
 
 .picture .box-body ul li img {
+    margin: 0;
     width: 100%;
 }
 
 .picture .box-body ul li span {
+    margin: 0;
     font-size: 16px;
     padding: 10px 5% 10px 5%;
 }

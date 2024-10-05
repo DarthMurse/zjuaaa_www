@@ -58,9 +58,15 @@ div.slogan a#button3 {
 /* 标语代码结束 */
 
 /* 知识手册代码开始 */
-.article {
-    height: 350px;
+.article .box-head{
+    overflow: hidden;
 }
+
+.article .box-body {
+    overflow: hidden;
+    margin-bottom: 30px;
+}
+
 .article .box-head h3 {
     float: left;
     padding: 20px 0;
@@ -99,9 +105,15 @@ div.slogan a#button3 {
 /* 知识手册代码结束 */
 
 /* 天文摄影代码开始 */
-.picture {
-    height: 350px;
+.picture .box-head {
+    overflow: hidden;
 }
+
+.picture .box-body {
+    overflow: hidden;
+    margin-bottom: 30px;
+}
+
 .picture .box-head h3 {
     float: left;
     padding: 20px 0;

@@ -17,8 +17,8 @@
         <ul>
             {% for item in md_info %}
             <li>
-                <a href="tutorial-detail.html"><img src="{% static 'img/'|add:item.img_url %}"></a>
-                <a href="tutorial-detail.html"><span class="description">{{item.title}}</span></a>
+                <a href="tutorial-detail.html?id={{item.id}}"><img src="{% static 'img/'|add:item.img_url %}"></a>
+                <a href="tutorial-detail.html?id={{item.id}}"><span class="description">{{item.title}}</span></a>
             </li>
             {% endfor %}
         </ul>

@@ -12,14 +12,21 @@
 
 .sidebar {
     overflow: scroll;
+    overflow-x: auto;
     width: 23%;
     height: 100vh;
     border-right: 1px solid white;
     border-top: 1px solid white;
-    color:blueviolet;
+    color: white;
+}
+
+.sidebar a {
+    text-decoration: none;
+    color: white;
 }
 
 .sidebar h4 {
+    border: 0;
     color: white;
     font-size: 25px;
     font-weight: bold;
@@ -27,12 +34,20 @@
 }
 
 .sidebar ul li {
+    border: 0;
     padding-left: 15px;
     padding-bottom: 5px;
 }
 
+.sidebar .inner {
+    border: 0;
+    display: none;
+    padding-left: 15px;
+}
+
 .content {
     overflow: scroll;
+    overflow-x:auto;
     width: 77%;
     height: 100vh;
     padding: 15px;
@@ -42,24 +57,19 @@
 }
 
 .content .head-img {
+    border: 0;
     width: 100%;
 }
 
-.content .head-img h3 {
-    float: left;
-    font-size: 40px;
-    font-weight: bold;
-}
-
 .content .head-img img {
+    border:0;
     float: left;
-    width: 50px;
     height: 50px;
 }
 
 .content .md {
+    border:0;
     clear: both;
 }
-
 /* 主体部分结束 */
 }

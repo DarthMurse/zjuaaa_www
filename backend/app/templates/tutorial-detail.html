@@ -5,32 +5,32 @@
 <title>浙大天协教程</title>
 <link rel="stylesheet" href="{% static 'css/tutorial-detail.css' %}"> 
 <script type="module" src="https://cdn.jsdelivr.net/gh/zerodevx/zero-md@2/dist/zero-md.min.js"></script>
-<script src="{% static 'js/tutorial.js' %}"></script>
 {% endblock %}
 
 {% block content %}
 <!-- tutorial -->
 <div class="container">
     <div class="sidebar">
-        <h4>markdown教程</h4>
+        <h4>{{title}}</h4>
         <ul>
+            {% for key, value in second_dir.items %}
             <li>
-                <p>1.markdown语法</p>
+                <p><a>{{key}}</a></p>
+                <ul class="inner">
+                    {% for second in value %}
+                    <li><a onclick="set_md('static/md/{{second.address}}')">{{second.title}}</a></li>
+                    {% endfor %}
+                </ul>
             </li>
-            <li>
-                <p>2.markdown标题</p>
-            </li>
-            <li>
-                <p>3.markdown段落格式</p>
-            </li>
+            {% endfor %}
         </ul>
     </div>
     <div class="content">
         <div class="head-img">
             <img src="{% static 'img/tutorial_logo.png' %}" alt="">
-            <h3>markdown简介</h3>
+            <img src="{% static 'img/tutorial_title.png' %}" alt="">
         </div>
-        <zero-md src="{% static 'md/1.markdown简介.md' %}" class="md">
+        <zero-md src="{% static 'md/'|add:path %}" class="md">
             <template>
                 <link rel="stylesheet" href="{% static 'css/tutorial-detail.css' %}">
             </template>
@@ -38,5 +38,19 @@
     </div>
  </div>
 <!-- tutorial ends -->
-<hr>
+
+<script>
+    $(function () {
+        $(".sidebar>ul>li>p>a").click(function () {
+            if ($(this).parent().next().is(":hidden"))
+                $(this).parent().next().show();
+            else
+                $(this).parent().next().hide();
+        });
+    })
+
+    function set_md (address) {
+        $('.md').attr('src', address);
+    }
+</script>
 {% endblock %}

@@ -15,18 +15,12 @@
     </div>
     <div class="box-body">
         <ul>
+            {% for item in tutorial %}
             <li>
-                <img src="{% static 'img/m33.jpeg' %}" alt="M33">
-                <span class="description">这是一个天文知识手册。</span>
+                <a href="tutorial-detail.html?id={{item.id}}"><img src="{% static 'img/'|add:item.img_url %}"></a>
+                <a href="tutorial-detail.html?id={{item.id}}"><span class="description">{{item.title}}</span></a>
             </li>
-            <li>
-                <img src="{% static 'img/m33.jpeg' %}" alt="M33">
-                <span class="description">这是一个天文知识手册。</span>
-            </li>
-            <li>
-                <img src="{% static 'img/m33.jpeg' %}" alt="M33">
-                <span class="description">这是一个天文知识手册。</span>
-            </li>
+            {% endfor %}
         </ul>
     </div>
 </div>
@@ -41,18 +35,12 @@
     </div>
     <div class="box-body">
         <ul>
+            {% for item in masterpiece %}
             <li>
-                <img src="{% static 'img/m33.jpeg' %}" alt="M33">
-                <span class="description">作者：XXX</span>
+                <a href="masterpiece-detail.html?id={{item.id}}"><img src="{% static 'img/small_'|add:item.url %}"></a>
+                <a href="masterpiece-detail.html?id={{item.id}}"><span class="description">作者：{{item.author}}</span></a>
             </li>
-            <li>
-                <img src="{% static 'img/m33.jpeg' %}" alt="M33">
-                <span class="description">作者：XXX</span>
-            </li>
-            <li>
-                <img src="{% static 'img/m33.jpeg' %}" alt="M33">
-                <span class="description">作者：XXX</span>
-            </li>
+            {% endfor %}
         </ul>
     </div>
 </div>

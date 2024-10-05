@@ -2,7 +2,47 @@ from django.shortcuts import render, HttpResponse, redirect
 from app import models
 import os
 from PIL import Image
-import shutil
+import shutil, errno
+
+def keep_number(string):
+    result = ''
+    for i in string:
+        if ('0' <= i <= '9') or i == '.':
+            result += i
+        else:
+            break
+    return result
+
+def rename_folder(root_path, id, file_list):
+    new_key = []
+    new_value = []
+    for key in file_list.keys():
+        new_dir = []
+        for value in file_list[key]:
+            os.rename("app/static/md/"+root_path+'/'+key+'/'+value, "app/static/md/"+root_path+'/'+key+'/'+keep_number(value))
+            new_dir.append(keep_number(value))
+        new_value.append(new_dir)
+        os.rename("app/static/md/"+root_path+'/'+key, "app/static/md/"+root_path+'/'+keep_number(key))
+        new_key.append(keep_number(key))
+    os.rename('app/static/md/'+root_path, "app/static/md/"+str(id))
+    return new_key, new_value
+
+def title_to_path(id, new_key, new_value):
+    result = []
+    for key in new_key:
+        dir = []
+        for value in new_value:
+            dir.append(str(id)+'/'+key+'/'+value)
+        result.append(dir)
+    return result
+
+def copyanything(src, dst):
+    try:
+        shutil.copytree(src, dst)
+    except OSError as exc: # python >2.5
+        if exc.errno in (errno.ENOTDIR, errno.EINVAL):
+            shutil.copy(src, dst)
+        else: raise
 
 def get_status(request):
     cookie = request.session.get("info")
@@ -19,7 +59,13 @@ def get_status(request):
 # Create your views here.
 def index(request):
     #return HttpResponse("Hello World!")
-    return render(request, "index.html", {**get_status(request)})
+    tutorial = models.Tutorial.objects.all()
+    if len(tutorial) > 3:
+        tutorial = tutorial[:3]
+    masterpiece = models.Masterpiece.objects.all()
+    if len(masterpiece) > 3:
+        masterpiece = masterpiece[:3]
+    return render(request, "index.html", {"tutorial": tutorial, "masterpiece": masterpiece, **get_status(request)})
 
 def about(request):
     return render(request, "about.html", {**get_status(request)})
@@ -50,11 +96,13 @@ def masterpiece_detail(request):
     description = request.POST.get("description")
     upload_img = request.FILES.get("masterpiece-file")
     url = str(len(image_info)) + "_" + upload_img.name
+    cookie = request.session.get("info")
+    #user = models.User.objects.filter(user_name=cookie["user_name"])
 
     with open("masterpiece/" + url, 'wb') as f:
         for chunk in upload_img.chunks():
             f.write(chunk)
-    models.Masterpiece.objects.create(author=author, description=description, url=url)
+    models.Masterpiece.objects.create(author=author, description=description, url=url, user_name_id=cookie["user_name"])
     return redirect(f"masterpiece-detail.html?id={id}")
 
 def masterpiece(request):
@@ -82,11 +130,13 @@ def masterpiece(request):
     description = request.POST.get("description")
     upload_img = request.FILES.get("masterpiece-file")
     url = str(len(image_info)) + "_" + upload_img.name
+    cookie = request.session.get("info")
+    #user = models.User.objects.filter(user_name=cookie["user_name"])
 
     with open("masterpiece/" + url, 'wb') as f:
         for chunk in upload_img.chunks():
             f.write(chunk)
-    models.Masterpiece.objects.create(author=author, description=description, url=url)
+    models.Masterpiece.objects.create(author=author, description=description, url=url, user_name_id=cookie["user_name"])
     #new_info = models.Masterpiece.objects.filter(url=url).first()
 
     '''
@@ -164,7 +214,57 @@ def register(request):
     return redirect("register-quiz.html", {**get_status(request)})
 
 def tutorial_detail(request):
-    return render(request, "tutorial-detail.html", {**get_status(request)})
+    id = request.GET.get("id")
+    info = models.Tutorial.objects.filter(id=id).first()
+    print(info)
+    
+    title = info.title
+    root_path = info.url
+    first_dir = []
+    index = []
+    for f in os.listdir("tutorial/"+root_path):
+        if not f.startswith('.'):
+            first_dir.append(f)
+    first_dir.sort()
+
+    second_dir = {}
+    show_dir = {}
+    for value in first_dir:
+        dir = []
+        title_dir = []
+        address_dir = []
+        for f in os.listdir("tutorial/"+root_path+"/"+value):
+            if not f.startswith('.'):
+                dir.append(f)
+                title_dir.append(f.replace('.md', ''))
+                address_dir.append(str(id)+'/'+keep_number(value)+'/'+keep_number(f))
+        dir.sort()
+        title_dir.sort()
+        address_dir.sort()
+        s_dir = []
+        for i in range(len(title_dir)):
+            s_dir.append({"title": title_dir[i], "address": address_dir[i]})
+        second_dir[value] = dir
+        show_dir[value] = s_dir
+
+    if not os.path.exists("app/static/md/"+str(id)):
+        copyanything("tutorial/"+root_path, "app/static/md/"+root_path)
+        new_key, new_value = rename_folder(root_path, id, second_dir)
+    else:
+        new_key, new_value = [], []
+        for key in second_dir.keys():
+            new_key.append(keep_number(key))
+            dir = []
+            for value in second_dir[key]:
+                dir.append(keep_number(value))
+            new_value.append(dir)
+
+    if not request.GET.get("address"):
+        path = str(id) + "/" + new_key[0] + "/" + new_value[0][0]
+    else:
+        path = request.GET.get("address")
+
+    return render(request, "tutorial-detail.html", {"id": id, "title": title, "path": path, "second_dir": show_dir, **get_status(request)})
 
 def tutorial(request):
     md_info = models.Tutorial.objects.all()
@@ -183,21 +283,28 @@ def tutorial(request):
     img = request.FILES.get("tutorial-img")
     img_url = "img_" + str(len(md_info)) + "_" + img.name
     md = request.FILES.get("tutorial-md")
-    md_url = str(len(md_info)) + "_" + md.name
+    md_url = str(len(md_info)) + "_" + md.name.split('.')[0]
+    cookie = request.session.get("info")
+    #user = models.User.objects.filter(user_name=cookie["user_name"])
     
     with open("tutorial/"+ img_url, "wb") as f:
         for chunk in img.chunks():
             f.write(chunk)
-    with open("tutorial/" + md_url, "wb") as f:
+    with open("tutorial/" + md.name, "wb") as f:
         for chunk in md.chunks():
             f.write(chunk)
     import tarfile
-    with tarfile.open("tutorial/" + md_url) as f:
-        f.extractall("tutorial/" + md_url.split('.')[0])
+    with tarfile.open("tutorial/" + md.name) as f:
+        f.extractall('tutorial/')
 
-    md_url = md_url.split('.')[0]
-    models.Tutorial.objects.create(title=title, author=author, img_url=img_url, url=md_url)
+    os.rename("tutorial/"+md.name.split('.')[0], "tutorial/"+md_url)
+    models.Tutorial.objects.create(title=title, author=author, img_url=img_url, url=md_url, user_name_id=cookie["user_name"])
     return redirect("tutorial.html")
 
 def person(request):
-    return render(request, "person.html", {**get_status(request)})  
+    cookie = request.session.get("info")
+    user_name_id = cookie["user_name"]
+    tutorial = models.Tutorial.objects.filter(user_name_id=user_name_id).all()
+    masterpiece = models.Masterpiece.objects.filter(user_name_id=user_name_id).all()
+
+    return render(request, "person.html", {"tutorial": tutorial, "masterpiece": masterpiece, **get_status(request)})  

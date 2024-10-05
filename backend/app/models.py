@@ -30,17 +30,19 @@ class AllContact(models.Model):
     email = models.CharField(verbose_name="邮箱", max_length=30, null=True, blank=True)
 
 class User(models.Model):
-    user_name = models.CharField(verbose_name="用户名", max_length=20)
+    user_name = models.CharField(verbose_name="用户名", unique=True, max_length=20)
     password = models.CharField(verbose_name="密码", max_length=32)
     admin_choices = ((1, "普通用户"), (2, "管理员"))
     admin = models.SmallIntegerField(verbose_name="权限", choices=admin_choices, default=0)
 
 class Masterpiece(models.Model):
+    user_name = models.ForeignKey(to="User",to_field="user_name", on_delete=models.CASCADE)
     author = models.CharField(verbose_name="作者", max_length=20)
     description = models.TextField(verbose_name="简介")
     url = models.CharField(verbose_name="文件名", max_length=40)
 
 class Tutorial(models.Model):
+    user_name = models.ForeignKey(to="User", to_field="user_name", on_delete=models.CASCADE)
     title = models.CharField(verbose_name="标题", max_length=20)
     author = models.CharField(verbose_name="作者", max_length=10)
     img_url = models.CharField(verbose_name="封面图片路径", max_length=40)
